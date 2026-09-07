@@ -40,6 +40,8 @@ namespace PinguiStory.CameraSystem
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
+
             InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
             _lookAction = map.FindAction(lookActionName, throwIfNotFound: true);
 
@@ -57,6 +59,8 @@ namespace PinguiStory.CameraSystem
         private void OnDisable()
         {
             _lookAction.Disable();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         private void LateUpdate()

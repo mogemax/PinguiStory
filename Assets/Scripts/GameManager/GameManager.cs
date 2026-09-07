@@ -41,6 +41,48 @@ namespace PinguiStory.Core
             DontDestroyOnLoad(gameObject);
         }
 
+        private void Start()
+        {
+            SceneLoader.Instance.LoadCompleted += RepositionPlayerAtSpawn;
+        }
+
+        private void OnDestroy()
+        {
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.LoadCompleted -= RepositionPlayerAtSpawn;
+            }
+        }
+
+        private void RepositionPlayerAtSpawn()
+        {
+            if (FloorSpawnPoint.Current == null)
+            {
+                return;
+            }
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                return;
+            }
+
+            Transform spawn = FloorSpawnPoint.Current.transform;
+            CharacterController controller = player.GetComponent<CharacterController>();
+
+            if (controller != null)
+            {
+                controller.enabled = false;
+            }
+
+            player.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+
+            if (controller != null)
+            {
+                controller.enabled = true;
+            }
+        }
+
         public void StartGame()
         {
             CurrentFloorIndex = 0;

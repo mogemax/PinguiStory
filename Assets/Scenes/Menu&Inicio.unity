@@ -1517,12 +1517,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760345994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f90c532e16234cc7a0f77a509b5bc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.CameraSystem.ThirdPersonCameraFollow
-  inputActions: {fileID: 0}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b,
+    type: 3}
   actionMapName: Player
   lookActionName: Look
   target: {fileID: 1381907422}
@@ -2499,12 +2500,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381907417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2697abaf7a54030a28ca1eb95bd9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Player.PlayerController
-  inputActions: {fileID: 0}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b,
+    type: 3}
   actionMapName: Player
   moveActionName: Move
   jumpActionName: Jump

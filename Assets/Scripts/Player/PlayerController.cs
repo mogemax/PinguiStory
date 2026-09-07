@@ -40,6 +40,8 @@ namespace PinguiStory.Player
 
         private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
+
             _controller = GetComponent<CharacterController>();
 
             if (cameraTransform == null && UnityEngine.Camera.main != null)
