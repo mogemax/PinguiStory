@@ -1672,6 +1672,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   positionSmoothTime: 0.08
+  yawFollowSmoothTime: 0.15
 --- !u!114 &760346000
 MonoBehaviour:
   m_ObjectHideFlags: 0

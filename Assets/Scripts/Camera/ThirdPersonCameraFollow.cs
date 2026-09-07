@@ -34,10 +34,13 @@ namespace PinguiStory.CameraSystem
 
         [Header("Smoothing")]
         [SerializeField] private float positionSmoothTime = 0.08f;
+        [SerializeField] private float yawFollowSmoothTime = 0.15f;
 
         private InputAction _lookAction;
         private float _yawOffset;
         private float _pitch;
+        private float _smoothedBaseYaw;
+        private float _yawFollowVelocity;
         private Vector3 _currentVelocity;
 
         private void Awake()
@@ -49,6 +52,7 @@ namespace PinguiStory.CameraSystem
 
             _pitch = initialPitch;
             _yawOffset = 0f;
+            _smoothedBaseYaw = target != null ? target.eulerAngles.y : 0f;
         }
 
         private void OnEnable()
@@ -74,8 +78,10 @@ namespace PinguiStory.CameraSystem
 
             UpdateOrbitAngles();
 
+            _smoothedBaseYaw = Mathf.SmoothDampAngle(_smoothedBaseYaw, target.eulerAngles.y, ref _yawFollowVelocity, yawFollowSmoothTime);
+
             Vector3 pivot = target.position + targetOffset;
-            float yaw = target.eulerAngles.y + _yawOffset;
+            float yaw = _smoothedBaseYaw + _yawOffset;
             Quaternion rotation = Quaternion.Euler(_pitch, yaw, 0f);
 
             float clampedDistance = ResolveCollision(pivot, rotation);

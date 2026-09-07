@@ -30,29 +30,66 @@ namespace PinguiStory.Player
         [Header("References")]
         [SerializeField] private Transform cameraTransform;
 
+        [Header("Animator")]
+        [SerializeField] private string vertParameterName = "Vert";
+        [SerializeField] private string stateParameterName = "State";
+        [SerializeField] private float animatorDampTime = 0.15f;
+
+        [Header("Slide")]
+        [SerializeField] private string slideActionName = "Crouch";
+        [SerializeField] private float slideBoostMultiplier = 1.6f;
+        [SerializeField] private float slideTiltAngle = 65f;
+        [SerializeField] private float slideTiltSmoothTime = 0.12f;
+        [SerializeField] private Transform meshRigRoot;
+
         private CharacterController _controller;
+        private Animator _animator;
         private InputAction _moveAction;
         private InputAction _jumpAction;
         private InputAction _sprintAction;
+        private InputAction _slideAction;
+
+        private int _vertHash;
+        private int _stateHash;
 
         private Vector2 _moveInput;
         private Vector3 _verticalVelocity;
+
+        private bool _isSliding;
+        private float _currentTilt;
+        private float _tiltVelocity;
+        private Quaternion _meshRigBaseRotation;
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
 
             _controller = GetComponent<CharacterController>();
+            _animator = GetComponent<Animator>();
 
             if (cameraTransform == null && UnityEngine.Camera.main != null)
             {
                 cameraTransform = UnityEngine.Camera.main.transform;
             }
 
+            if (meshRigRoot == null)
+            {
+                meshRigRoot = transform.Find("Pinguin_001_rig");
+            }
+
+            if (meshRigRoot != null)
+            {
+                _meshRigBaseRotation = meshRigRoot.localRotation;
+            }
+
+            _vertHash = Animator.StringToHash(vertParameterName);
+            _stateHash = Animator.StringToHash(stateParameterName);
+
             InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
             _moveAction = map.FindAction(moveActionName, throwIfNotFound: true);
             _jumpAction = map.FindAction(jumpActionName, throwIfNotFound: true);
             _sprintAction = map.FindAction(sprintActionName, throwIfNotFound: true);
+            _slideAction = map.FindAction(slideActionName, throwIfNotFound: true);
         }
 
         private void OnEnable()
@@ -60,6 +97,7 @@ namespace PinguiStory.Player
             _moveAction.Enable();
             _jumpAction.Enable();
             _sprintAction.Enable();
+            _slideAction.Enable();
             _jumpAction.performed += OnJumpPerformed;
         }
 
@@ -69,14 +107,34 @@ namespace PinguiStory.Player
             _moveAction.Disable();
             _jumpAction.Disable();
             _sprintAction.Disable();
+            _slideAction.Disable();
         }
 
         private void Update()
         {
             _moveInput = _moveAction.ReadValue<Vector2>();
 
+            UpdateSlideState();
             ApplyGravity();
             Move();
+            UpdateAnimator();
+        }
+
+        private void LateUpdate()
+        {
+            if (meshRigRoot == null)
+            {
+                return;
+            }
+
+            float targetTilt = _isSliding ? slideTiltAngle : 0f;
+            _currentTilt = Mathf.SmoothDampAngle(_currentTilt, targetTilt, ref _tiltVelocity, slideTiltSmoothTime);
+            meshRigRoot.localRotation = _meshRigBaseRotation * Quaternion.Euler(_currentTilt, 0f, 0f);
+        }
+
+        private void UpdateSlideState()
+        {
+            _isSliding = _slideAction.IsPressed() && _controller.isGrounded && _moveInput.sqrMagnitude > 0.01f;
         }
 
         private void Move()
@@ -89,10 +147,32 @@ namespace PinguiStory.Player
             }
 
             float currentSpeed = _sprintAction.IsPressed() ? sprintSpeed : moveSpeed;
+
+            if (_isSliding)
+            {
+                currentSpeed *= slideBoostMultiplier;
+            }
+
             Vector3 horizontalMotion = moveDirection * currentSpeed;
             Vector3 motion = horizontalMotion + _verticalVelocity;
 
             _controller.Move(motion * Time.deltaTime);
+        }
+
+        private void UpdateAnimator()
+        {
+            if (_isSliding)
+            {
+                _animator.SetFloat(_vertHash, 0f, animatorDampTime, Time.deltaTime);
+                _animator.SetFloat(_stateHash, 0f, animatorDampTime, Time.deltaTime);
+                return;
+            }
+
+            float moveMagnitude = Mathf.Clamp01(_moveInput.magnitude);
+            float stateValue = _sprintAction.IsPressed() ? 1f : 0f;
+
+            _animator.SetFloat(_vertHash, moveMagnitude, animatorDampTime, Time.deltaTime);
+            _animator.SetFloat(_stateHash, stateValue, animatorDampTime, Time.deltaTime);
         }
 
         private Vector3 GetCameraRelativeDirection(Vector2 input)
