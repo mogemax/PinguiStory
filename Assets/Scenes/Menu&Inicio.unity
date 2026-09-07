@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f12dbb1e1f84fbe41863480eb67db266, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: f12dbb1e1f84fbe41863480eb67db266, type: 3}
       propertyPath: m_Name
       value: IceMountain_01
@@ -188,6 +192,75 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12dbb1e1f84fbe41863480eb67db266, type: 3}
+--- !u!1001 &52080472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.089042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.089042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.089042
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -424
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.119942814
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.99278086
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -166.222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115862921679095284, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
+      propertyPath: m_Name
+      value: IceCave
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
 --- !u!1001 &54968475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
       propertyPath: m_Name
       value: IcePlatform_02 (3)
@@ -522,6 +599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (8)
@@ -793,6 +874,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
       propertyPath: m_Name
       value: IcePlatform_02 (1)
@@ -885,6 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436717396}
+  - component: {fileID: 436717397}
   m_Layer: 0
   m_Name: Escenario
   m_TagString: Untagged
@@ -925,6 +1011,28 @@ Transform:
   - {fileID: 148555586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &436717397
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436717395}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &456619124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -985,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (4)
@@ -1069,6 +1181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (9)
@@ -1148,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (6)
@@ -1217,6 +1337,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (3)
@@ -1286,6 +1410,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (5)
@@ -1355,6 +1483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
       propertyPath: m_Name
       value: IcePlatform_02 (2)
@@ -1508,8 +1640,8 @@ MonoBehaviour:
   menuCanvasGroup: {fileID: 1785376816}
   uiFadeDuration: 0.5
   playerObject: {fileID: 1381907417}
-  playerController: {fileID: 0}
-  cameraFollow: {fileID: 0}
+  playerController: {fileID: 1381907424}
+  cameraFollow: {fileID: 760345999}
 --- !u!114 &760345999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,16 +1654,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f90c532e16234cc7a0f77a509b5bc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.CameraSystem.ThirdPersonCameraFollow
-  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b,
-    type: 3}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionMapName: Player
   lookActionName: Look
   target: {fileID: 1381907422}
   targetOffset: {x: 0, y: 1.5, z: 0}
-  mouseSensitivity: 2
+  mouseSensitivity: 0.15
   minPitch: -30
   maxPitch: 60
   initialPitch: 15
+  minYaw: -60
+  maxYaw: 60
   distance: 4
   minDistance: 0.5
   collisionRadius: 0.2
@@ -1713,6 +1846,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
   m_PrefabInstance: {fileID: 1590778406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &889751814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4899583741315840764, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_Name
+      value: IceMountain_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8.985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8.985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 503.00317
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46.130238
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9374602
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.3480927
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -40.741
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086980563052143132, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4899583741315840764, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1751674527}
+  m_SourcePrefab: {fileID: 100100000, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
 --- !u!1001 &896002196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1773,6 +1978,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (7)
@@ -1850,6 +2059,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
   m_PrefabInstance: {fileID: 692259622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1046080676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7799598339947194755, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+  m_PrefabInstance: {fileID: 1974371618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1046080677
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046080676}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2792592484033676519, guid: 1da7dc19fb648f44f911554e642ca06b, type: 3}
 --- !u!1001 &1061349026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,6 +2146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (1)
@@ -1979,6 +2219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
       propertyPath: m_Name
       value: IcePlatform_02
@@ -2053,6 +2297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1da7dc19fb648f44f911554e642ca06b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 1da7dc19fb648f44f911554e642ca06b, type: 3}
       propertyPath: m_Name
       value: IceMountain_02
@@ -2419,6 +2667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5c3e086aafaa57d40a65c33092c44083, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 5c3e086aafaa57d40a65c33092c44083, type: 3}
       propertyPath: m_Name
       value: Snowman_01
@@ -2428,6 +2680,105 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c3e086aafaa57d40a65c33092c44083, type: 3}
+--- !u!1001 &1361943662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 41.95366
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 41.95366
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 41.95366
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -192.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -68.224
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -143.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9293183
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3692796
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 43.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963355862546683357, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819208786060711880, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      propertyPath: m_Name
+      value: IceRock_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8819208786060711880, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1361943664}
+  m_SourcePrefab: {fileID: 100100000, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+--- !u!1 &1361943663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8819208786060711880, guid: e5f2010e51a77964a938d5d2c485ba37, type: 3}
+  m_PrefabInstance: {fileID: 1361943662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1361943664
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361943663}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2967016289766962611, guid: 9a5ca7c1e013f7e488aeeffeeb1eb76c, type: 3}
 --- !u!1 &1367621886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 318a556eb8fdecf428a652023840610b, type: 3}
@@ -2505,8 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2697abaf7a54030a28ca1eb95bd9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Player.PlayerController
-  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b,
-    type: 3}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   actionMapName: Player
   moveActionName: Move
   jumpActionName: Jump
@@ -2578,6 +2928,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree
@@ -2750,6 +3104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 318a556eb8fdecf428a652023840610b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 318a556eb8fdecf428a652023840610b, type: 3}
       propertyPath: m_Name
       value: IcePlatform_01
@@ -2822,6 +3180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
       propertyPath: m_Name
       value: IceTree (2)
@@ -2947,6 +3309,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 631e3b802901c4b4187e0292d5db5a79, type: 3}
   m_PrefabInstance: {fileID: 725344346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1751674526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4899583741315840764, guid: 058c71a43cc03444fbb222f74297f85a, type: 3}
+  m_PrefabInstance: {fileID: 889751814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1751674527
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751674526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3551677912181157352, guid: f12dbb1e1f84fbe41863480eb67db266, type: 3}
 --- !u!1 &1785376811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3466,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 464197cd90488094aae443e5e59a6d77, type: 3}
   m_PrefabInstance: {fileID: 1080192160}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1974371618
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.3389
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.3389
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6.3389
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -122
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -211
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799598339947194755, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      propertyPath: m_Name
+      value: IceMountain_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7799598339947194755, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1046080677}
+  m_SourcePrefab: {fileID: 100100000, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
 --- !u!1001 &1995183531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3137,6 +3598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 84310bbafdbb7da4f9ac99a500cdb865, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df5d7d2592485548871553f2e2c8d57, type: 2}
     - target: {fileID: 919132149155446097, guid: 84310bbafdbb7da4f9ac99a500cdb865, type: 3}
       propertyPath: m_Name
       value: IceMountain_03
@@ -3162,3 +3627,7 @@ SceneRoots:
   - {fileID: 1785376815}
   - {fileID: 1261124769}
   - {fileID: 1480241683}
+  - {fileID: 889751814}
+  - {fileID: 1974371618}
+  - {fileID: 1361943662}
+  - {fileID: 52080472}

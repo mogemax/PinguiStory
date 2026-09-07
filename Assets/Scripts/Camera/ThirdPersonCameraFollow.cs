@@ -19,10 +19,12 @@ namespace PinguiStory.CameraSystem
         [SerializeField] private Vector3 targetOffset = new Vector3(0f, 1.5f, 0f);
 
         [Header("Orbit")]
-        [SerializeField] private float mouseSensitivity = 2f;
+        [SerializeField] private float mouseSensitivity = 0.15f;
         [SerializeField] private float minPitch = -30f;
         [SerializeField] private float maxPitch = 60f;
         [SerializeField] private float initialPitch = 15f;
+        [SerializeField] private float minYaw = -60f;
+        [SerializeField] private float maxYaw = 60f;
 
         [Header("Distance")]
         [SerializeField] private float distance = 4f;
@@ -34,7 +36,7 @@ namespace PinguiStory.CameraSystem
         [SerializeField] private float positionSmoothTime = 0.08f;
 
         private InputAction _lookAction;
-        private float _yaw;
+        private float _yawOffset;
         private float _pitch;
         private Vector3 _currentVelocity;
 
@@ -46,7 +48,7 @@ namespace PinguiStory.CameraSystem
             _lookAction = map.FindAction(lookActionName, throwIfNotFound: true);
 
             _pitch = initialPitch;
-            _yaw = target != null ? target.eulerAngles.y : 0f;
+            _yawOffset = 0f;
         }
 
         private void OnEnable()
@@ -73,7 +75,8 @@ namespace PinguiStory.CameraSystem
             UpdateOrbitAngles();
 
             Vector3 pivot = target.position + targetOffset;
-            Quaternion rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+            float yaw = target.eulerAngles.y + _yawOffset;
+            Quaternion rotation = Quaternion.Euler(_pitch, yaw, 0f);
 
             float clampedDistance = ResolveCollision(pivot, rotation);
             Vector3 desiredPosition = pivot - rotation * Vector3.forward * clampedDistance;
@@ -85,7 +88,8 @@ namespace PinguiStory.CameraSystem
         private void UpdateOrbitAngles()
         {
             Vector2 lookInput = _lookAction.ReadValue<Vector2>();
-            _yaw += lookInput.x * mouseSensitivity;
+            _yawOffset += lookInput.x * mouseSensitivity;
+            _yawOffset = Mathf.Clamp(_yawOffset, minYaw, maxYaw);
             _pitch -= lookInput.y * mouseSensitivity;
             _pitch = Mathf.Clamp(_pitch, minPitch, maxPitch);
         }
