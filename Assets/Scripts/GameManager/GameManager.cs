@@ -18,7 +18,23 @@ namespace PinguiStory.Core
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance { get; private set; }
+        private static GameManager _instance;
+        public static GameManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<GameManager>();
+                    if (_instance == null)
+                    {
+                        GameObject go = new GameObject("GameManager");
+                        _instance = go.AddComponent<GameManager>();
+                    }
+                }
+                return _instance;
+            }
+        }
 
         [Header("Pisos de la torre, en orden de progresión")]
         [SerializeField] private string[] floorSceneNames = { "Piso1", "Piso2", "Piso3" };
@@ -31,22 +47,26 @@ namespace PinguiStory.Core
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
+            if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            SceneLoader.Instance.LoadCompleted += RepositionPlayerAtSpawn;
+            if (SceneLoader.Instance != null)
+            {
+                SceneLoader.Instance.LoadCompleted -= RepositionPlayerAtSpawn;
+                SceneLoader.Instance.LoadCompleted += RepositionPlayerAtSpawn;
+            }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (SceneLoader.Instance != null)
             {
@@ -118,7 +138,27 @@ namespace PinguiStory.Core
 
         private void LoadCurrentFloor()
         {
-            SceneLoader.Instance.LoadScene(floorSceneNames[CurrentFloorIndex]);
+            if (floorSceneNames == null || floorSceneNames.Length == 0)
+            {
+                Debug.LogError("[GameManager] No se han configurado los nombres de escena en 'floorSceneNames'.");
+                return;
+            }
+
+            if (CurrentFloorIndex < 0 || CurrentFloorIndex >= floorSceneNames.Length)
+            {
+                Debug.LogError($"[GameManager] Índice de piso fuera de rango: {CurrentFloorIndex}");
+                return;
+            }
+
+            string sceneToLoad = floorSceneNames[CurrentFloorIndex];
+
+            if (string.IsNullOrEmpty(sceneToLoad))
+            {
+                Debug.LogError($"[GameManager] El nombre de la escena en el índice {CurrentFloorIndex} está vacío.");
+                return;
+            }
+
+            SceneLoader.Instance.LoadScene(sceneToLoad);
         }
     }
 }

@@ -11,7 +11,23 @@ namespace PinguiStory.Core
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
-        public static SceneLoader Instance { get; private set; }
+        private static SceneLoader _instance;
+        public static SceneLoader Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<SceneLoader>();
+                    if (_instance == null)
+                    {
+                        GameObject go = new GameObject("SceneLoader");
+                        _instance = go.AddComponent<SceneLoader>();
+                    }
+                }
+                return _instance;
+            }
+        }
 
         public event Action LoadStarted;
         public event Action<float> LoadProgressChanged;
@@ -21,13 +37,13 @@ namespace PinguiStory.Core
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
+            if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
                 return;
             }
 
-            Instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -35,6 +51,13 @@ namespace PinguiStory.Core
         {
             if (IsLoading)
             {
+                Debug.LogWarning($"[SceneLoader] Ya hay una carga en progreso. Se ignoró la solicitud de: {sceneName}");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(sceneName))
+            {
+                Debug.LogError("[SceneLoader] No se proporcionó un nombre de escena válido.");
                 return;
             }
 
@@ -46,7 +69,23 @@ namespace PinguiStory.Core
             IsLoading = true;
             LoadStarted?.Invoke();
 
-            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            AsyncOperation operation = null;
+
+            try
+            {
+                operation = SceneManager.LoadSceneAsync(sceneName);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[SceneLoader] Error al intentar cargar la escena '{sceneName}': {ex.Message}");
+            }
+
+            if (operation == null)
+            {
+                Debug.LogError($"[SceneLoader] No se pudo iniciar la carga de '{sceneName}'. Revisa si la escena existe y está agregada en Build Settings.");
+                IsLoading = false;
+                yield break;
+            }
 
             while (!operation.isDone)
             {
