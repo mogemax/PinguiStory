@@ -26,6 +26,14 @@ namespace PinguiStory.UI
         [SerializeField] private CanvasGroup menuCanvasGroup;
         [SerializeField] private float uiFadeDuration = 0.5f;
 
+        [Header("Botón Salir")]
+        [SerializeField] private Button exitButton;
+
+        [Header("Créditos")]
+        [SerializeField] private Button creditsButton;
+        [SerializeField] private Button closeCreditsButton;
+        [SerializeField] private GameObject creditsPanel;
+
         [Header("Jugador")]
         [SerializeField] private GameObject playerObject;
         [SerializeField] private PlayerController playerController;
@@ -49,6 +57,21 @@ namespace PinguiStory.UI
             {
                 startButton.onClick.AddListener(OnStartPressed);
             }
+
+            if (exitButton != null)
+            {
+                exitButton.onClick.AddListener(OnExitPressed);
+            }
+
+            if (creditsButton != null)
+            {
+                creditsButton.onClick.AddListener(OnCreditsPressed);
+            }
+
+            if (closeCreditsButton != null)
+            {
+                closeCreditsButton.onClick.AddListener(OnCloseCreditsPressed);
+            }
         }
 
         private void OnDisable()
@@ -56,6 +79,21 @@ namespace PinguiStory.UI
             if (startButton != null)
             {
                 startButton.onClick.RemoveListener(OnStartPressed);
+            }
+
+            if (exitButton != null)
+            {
+                exitButton.onClick.RemoveListener(OnExitPressed);
+            }
+
+            if (creditsButton != null)
+            {
+                creditsButton.onClick.RemoveListener(OnCreditsPressed);
+            }
+
+            if (closeCreditsButton != null)
+            {
+                closeCreditsButton.onClick.RemoveListener(OnCloseCreditsPressed);
             }
         }
 
@@ -81,6 +119,11 @@ namespace PinguiStory.UI
                 menuCanvasGroup.alpha = 1f;
                 menuCanvasGroup.interactable = true;
                 menuCanvasGroup.blocksRaycasts = true;
+            }
+
+            if (creditsPanel != null)
+            {
+                creditsPanel.SetActive(false);
             }
         }
 
@@ -171,6 +214,31 @@ namespace PinguiStory.UI
             }
 
             menuCanvasGroup.alpha = to;
+        }
+
+        private void OnExitPressed()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+
+        private void OnCreditsPressed()
+        {
+            if (creditsPanel != null)
+            {
+                creditsPanel.SetActive(true);
+            }
+        }
+
+        private void OnCloseCreditsPressed()
+        {
+            if (creditsPanel != null)
+            {
+                creditsPanel.SetActive(false);
+            }
         }
     }
 }
