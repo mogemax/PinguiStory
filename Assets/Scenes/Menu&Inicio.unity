@@ -2023,7 +2023,7 @@ MonoBehaviour:
   closeCreditsButton: {fileID: 1355522822}
   creditsPanel: {fileID: 858180392}
   playerObject: {fileID: 1381907417}
-  playerController: {fileID: 1381907424}
+  playerController: {fileID: 0}
   cameraFollow: {fileID: 760345999}
 --- !u!114 &760345999
 MonoBehaviour:
@@ -2097,7 +2097,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
-
 --- !u!1 &801513232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,73 +2789,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da7dc19fb648f44f911554e642ca06b, type: 3}
---- !u!1001 &1152198521
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_Name
-      value: Pinguin_001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -19.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197702747431416007, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1381907424}
-    - targetCorrespondingSourceObject: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1381907423}
-  m_SourcePrefab: {fileID: 100100000, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
 --- !u!1 &1160887077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,7 +2864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160887077}
   m_CullTransparentMesh: 1
-
 --- !u!1 &1222850672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,43 +3508,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4057577852412204406, guid: 9a668b7437a5ae04d8b1dfccc33db516, type: 3}
   m_PrefabInstance: {fileID: 3774972076436210510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1381907424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5833514249839078679, guid: 9a668b7437a5ae04d8b1dfccc33db516, type: 3}
-  m_PrefabInstance: {fileID: 3774972076436210510}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381907417}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2697abaf7a54030a28ca1eb95bd9e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Player.PlayerController
-  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  actionMapName: Player
-  moveActionName: Move
-  jumpActionName: Jump
-  sprintActionName: Sprint
-  moveSpeed: 5
-  sprintSpeed: 8
-  rotationSpeed: 12
-  gravity: -9.81
-  groundedGravity: -2
-  jumpHeight: 1.2
-  cameraTransform: {fileID: 0}
-  vertParameterName: Vert
-  stateParameterName: State
-  animatorDampTime: 0.15
-  slideActionName: Crouch
-  slideBoostMultiplier: 1.6
-  slideTiltAngle: 65
-  slideTiltSmoothTime: 0.12
-  meshRigRoot: {fileID: 0}
 --- !u!4 &1409828484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3816813528168023896, guid: e0c2f768ea2e16746b0cc89eac6be770, type: 3}
   m_PrefabInstance: {fileID: 52080472}
   m_PrefabAsset: {fileID: 0}
-
 --- !u!1001 &1469231141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4635,6 +4534,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5833514249839078679, guid: 9a668b7437a5ae04d8b1dfccc33db516, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4711,7 +4614,7 @@ PrefabInstance:
     - target: {fileID: 5561012002702214911, guid: e4ba16a5d9799074589e1be1af3f8683, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1381907424}
+      objectReference: {fileID: 0}
     - target: {fileID: 5561012002702214911, guid: e4ba16a5d9799074589e1be1af3f8683, type: 3}
       propertyPath: gameplayViewPoint
       value: 
@@ -4801,3 +4704,4 @@ SceneRoots:
   - {fileID: 1538242858}
   - {fileID: 396710472}
   - {fileID: 122465365}
+  - {fileID: 760345997}
