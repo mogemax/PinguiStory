@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &405332180704095538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.056835
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.650539
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.716482
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      propertyPath: m_Name
+      value: stone
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 762658025633724225}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6452945076553809028}
+  m_SourcePrefab: {fileID: 100100000, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+--- !u!1 &675943092870434915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d0ae3154b13e4f2479e0c62b990a8903, type: 3}
+  m_PrefabInstance: {fileID: 405332180704095538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &762658025633724225
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675943092870434915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021160703, y: 0.021293681, z: 0.021257685}
+  m_Center: {x: 0.00032436103, y: 0.00013110228, z: -0.00023958925}
+--- !u!114 &6452945076553809028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675943092870434915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e848148d06ee49d6924249faf2598c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Collectibles.Stone
+  value: 1
+  collectVfx: {fileID: 1271287086079964626, guid: 6f6c0498506f6ea4b89c150593d62068, type: 3}
+  collectSfx: {fileID: 8300000, guid: 2932d3499c6fa8f48955ed6e192b7442, type: 3}
