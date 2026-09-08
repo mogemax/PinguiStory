@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 946458f36afd5f544b1a0aa21e91237f
+guid: 448c5f4922f0fd0478816a21eced9005
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pSphere1_pasted__EntradasMat
+    second: {fileID: 2100000, guid: c75a02343a154493bbd1c3a86856271b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group_pasted__pSphere2_pasted__SalidasMat
+    second: {fileID: 2100000, guid: c75a02343a154493bbd1c3a86856271b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__Laberinto_1_groupMat
+    second: {fileID: 2100000, guid: c75a02343a154493bbd1c3a86856271b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
