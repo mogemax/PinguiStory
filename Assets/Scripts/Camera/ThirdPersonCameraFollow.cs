@@ -23,8 +23,6 @@ namespace PinguiStory.CameraSystem
         [SerializeField] private float minPitch = -30f;
         [SerializeField] private float maxPitch = 60f;
         [SerializeField] private float initialPitch = 15f;
-        [SerializeField] private float minYaw = -60f;
-        [SerializeField] private float maxYaw = 60f;
 
         [Header("Distance")]
         [SerializeField] private float distance = 4f;
@@ -34,13 +32,10 @@ namespace PinguiStory.CameraSystem
 
         [Header("Smoothing")]
         [SerializeField] private float positionSmoothTime = 0.08f;
-        [SerializeField] private float yawFollowSmoothTime = 0.15f;
 
         private InputAction _lookAction;
-        private float _yawOffset;
+        private float _yaw;
         private float _pitch;
-        private float _smoothedBaseYaw;
-        private float _yawFollowVelocity;
         private Vector3 _currentVelocity;
 
         private void Awake()
@@ -51,8 +46,7 @@ namespace PinguiStory.CameraSystem
             _lookAction = map.FindAction(lookActionName, throwIfNotFound: true);
 
             _pitch = initialPitch;
-            _yawOffset = 0f;
-            _smoothedBaseYaw = target != null ? target.eulerAngles.y : 0f;
+            _yaw = target != null ? target.eulerAngles.y : 0f;
         }
 
         private void OnEnable()
@@ -78,11 +72,8 @@ namespace PinguiStory.CameraSystem
 
             UpdateOrbitAngles();
 
-            _smoothedBaseYaw = Mathf.SmoothDampAngle(_smoothedBaseYaw, target.eulerAngles.y, ref _yawFollowVelocity, yawFollowSmoothTime);
-
             Vector3 pivot = target.position + targetOffset;
-            float yaw = _smoothedBaseYaw + _yawOffset;
-            Quaternion rotation = Quaternion.Euler(_pitch, yaw, 0f);
+            Quaternion rotation = Quaternion.Euler(_pitch, _yaw, 0f);
 
             float clampedDistance = ResolveCollision(pivot, rotation);
             Vector3 desiredPosition = pivot - rotation * Vector3.forward * clampedDistance;
@@ -94,8 +85,7 @@ namespace PinguiStory.CameraSystem
         private void UpdateOrbitAngles()
         {
             Vector2 lookInput = _lookAction.ReadValue<Vector2>();
-            _yawOffset += lookInput.x * mouseSensitivity;
-            _yawOffset = Mathf.Clamp(_yawOffset, minYaw, maxYaw);
+            _yaw += lookInput.x * mouseSensitivity;
             _pitch -= lookInput.y * mouseSensitivity;
             _pitch = Mathf.Clamp(_pitch, minPitch, maxPitch);
         }
