@@ -60,6 +60,8 @@ namespace PinguiStory.Player
         private float _tiltVelocity;
         private Quaternion _meshRigBaseRotation;
 
+        private bool _isAimMode;
+
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -137,11 +139,24 @@ namespace PinguiStory.Player
             _isSliding = _slideAction.IsPressed() && _controller.isGrounded && _moveInput.sqrMagnitude > 0.01f;
         }
 
+        /// <summary>
+        /// Modo puntería (piso 4 / shooter): el pingüino siempre mira hacia donde apunta
+        /// la cámara, en vez de girar hacia la dirección de movimiento. Permite strafear.
+        /// </summary>
+        public void SetAimMode(bool enabled)
+        {
+            _isAimMode = enabled;
+        }
+
         private void Move()
         {
             Vector3 moveDirection = GetCameraRelativeDirection(_moveInput);
 
-            if (moveDirection.sqrMagnitude > 0.0001f)
+            if (_isAimMode)
+            {
+                RotateTowardsCameraYaw();
+            }
+            else if (moveDirection.sqrMagnitude > 0.0001f)
             {
                 RotateTowards(moveDirection);
             }
@@ -195,6 +210,17 @@ namespace PinguiStory.Player
         private void RotateTowards(Vector3 direction)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        private void RotateTowardsCameraYaw()
+        {
+            if (cameraTransform == null)
+            {
+                return;
+            }
+
+            Quaternion targetRotation = Quaternion.Euler(0f, cameraTransform.eulerAngles.y, 0f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
