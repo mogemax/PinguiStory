@@ -2545,8 +2545,13 @@ MonoBehaviour:
   - {fileID: 900000032}
   - {fileID: 900000042}
   - {fileID: 900000052}
-  filledSprite: {fileID: 0}
-  emptySprite: {fileID: 0}
+  stoneSprites:
+  - {fileID: -1631824781, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: 2044126841, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: 1077934448, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: -1063887653, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  collectedColor: {r: 1, g: 1, b: 1, a: 1}
+  pendingColor: {r: 1, g: 1, b: 1, a: 0.28}
 --- !u!1 &900000010
 GameObject:
   m_ObjectHideFlags: 0

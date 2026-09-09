@@ -17,10 +17,16 @@ namespace PinguiStory.Combat
 
         [Header("Weapon")]
         [SerializeField] private Transform muzzlePoint;
+        [SerializeField] private Vector3 fallbackMuzzleLocalPosition = new Vector3(0.25f, 0.9f, 0.8f);
         [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private float projectileSpeed = 20f;
         [SerializeField] private int damage = 10;
         [SerializeField] private float fireCooldown = 0.25f;
+
+        [Header("Visual")]
+        [SerializeField] private GameObject weaponVisualPrefab;
+        [SerializeField] private Vector3 weaponVisualLocalPosition = Vector3.zero;
+        [SerializeField] private Vector3 weaponVisualLocalEulerAngles = Vector3.zero;
 
         private InputAction _attackAction;
         private float _nextFireTime;
@@ -29,11 +35,32 @@ namespace PinguiStory.Combat
         {
             if (muzzlePoint == null)
             {
-                muzzlePoint = transform;
+                GameObject fallbackMuzzle = new GameObject("Runtime Muzzle Point");
+                muzzlePoint = fallbackMuzzle.transform;
+                muzzlePoint.SetParent(transform, false);
+                muzzlePoint.localPosition = fallbackMuzzleLocalPosition;
             }
+
+            SpawnWeaponVisual();
 
             InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
             _attackAction = map.FindAction(attackActionName, throwIfNotFound: true);
+        }
+
+        /// <summary>
+        /// Instancia el modelo visual del arma (ej. AK74M) como hijo de "Muzzle Point".
+        /// Puramente estético: no afecta la dirección ni el punto de disparo del proyectil.
+        /// </summary>
+        private void SpawnWeaponVisual()
+        {
+            if (weaponVisualPrefab == null)
+            {
+                return;
+            }
+
+            GameObject visualInstance = Instantiate(weaponVisualPrefab, muzzlePoint);
+            visualInstance.transform.localPosition = weaponVisualLocalPosition;
+            visualInstance.transform.localRotation = Quaternion.Euler(weaponVisualLocalEulerAngles);
         }
 
         private void OnEnable()

@@ -6,7 +6,7 @@ using PinguiStory.Collectibles;
 namespace PinguiStory.UI
 {
     /// <summary>
-    /// HUD de círculos indicadores de piedras recolectadas en el piso actual.
+    /// HUD de piedras recolectadas en el piso actual.
     /// El total por piso es fijo (no se auto-cuenta desde la escena).
     /// </summary>
     public class StoneCounterUI : MonoBehaviour
@@ -14,8 +14,9 @@ namespace PinguiStory.UI
         private const int TotalStonesPerFloor = 5;
 
         [SerializeField] private Image[] circleSlots;
-        [SerializeField] private Sprite filledSprite;
-        [SerializeField] private Sprite emptySprite;
+        [SerializeField] private Sprite[] stoneSprites;
+        [SerializeField] private Color collectedColor = Color.white;
+        [SerializeField] private Color pendingColor = new Color(1f, 1f, 1f, 0.28f);
 
         private Coroutine _waitForManagerRoutine;
         private bool _subscribed;
@@ -81,9 +82,26 @@ namespace PinguiStory.UI
         {
             for (int i = 0; i < circleSlots.Length; i++)
             {
+                Image slot = circleSlots[i];
+                if (slot == null)
+                {
+                    continue;
+                }
+
                 bool isFilled = i < floorCount && i < TotalStonesPerFloor;
-                circleSlots[i].sprite = isFilled ? filledSprite : emptySprite;
+                slot.sprite = GetStoneSprite(i);
+                slot.color = isFilled ? collectedColor : pendingColor;
             }
+        }
+
+        private Sprite GetStoneSprite(int slotIndex)
+        {
+            if (stoneSprites == null || stoneSprites.Length == 0)
+            {
+                return null;
+            }
+
+            return stoneSprites[slotIndex % stoneSprites.Length];
         }
     }
 }

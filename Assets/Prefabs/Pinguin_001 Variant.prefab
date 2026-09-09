@@ -66,6 +66,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7724382903962552268}
+    - targetCorrespondingSourceObject: {fileID: 1527881004230699645, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5833514249839078680}
   m_SourcePrefab: {fileID: 100100000, guid: 66f01a8db88f9644baed659d1f91cdca, type: 3}
 --- !u!1 &3676266758353047500 stripped
 GameObject:
@@ -127,3 +130,27 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5833514249839078680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676266758353047500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61dc6e6c7b41945e397b854b720ecc4e, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Combat.WeaponController
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  actionMapName: Player
+  attackActionName: Attack
+  muzzlePoint: {fileID: 0}
+  fallbackMuzzleLocalPosition: {x: 0.25, y: 0.9, z: 0.8}
+  projectilePrefab: {fileID: 100000007, guid: 64ee05a20507411c9122696f834d2b7c, type: 3}
+  projectileSpeed: 20
+  damage: 10
+  fireCooldown: 0.25
+  weaponVisualPrefab: {fileID: 4952269312617140760, guid: a1ce908bd03ca8d4d88b6f274062a0ba, type: 3}
+  weaponVisualLocalPosition: {x: 0, y: 0, z: 0}
+  weaponVisualLocalEulerAngles: {x: 0, y: 0, z: 0}

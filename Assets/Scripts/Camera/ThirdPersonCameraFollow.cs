@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PinguiStory.Player;
 
 namespace PinguiStory.CameraSystem
 {
@@ -9,6 +10,8 @@ namespace PinguiStory.CameraSystem
     /// </summary>
     public class ThirdPersonCameraFollow : MonoBehaviour
     {
+        public static ThirdPersonCameraFollow Instance { get; private set; }
+
         [Header("Input")]
         [SerializeField] private InputActionAsset inputActions;
         [SerializeField] private string actionMapName = "Player";
@@ -37,9 +40,24 @@ namespace PinguiStory.CameraSystem
         private float _yaw;
         private float _pitch;
         private Vector3 _currentVelocity;
+        private bool _isPrimaryInstance;
+
+        public void SetTarget(Transform value)
+        {
+            target = value;
+            _yaw = target != null ? target.eulerAngles.y : _yaw;
+        }
 
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            _isPrimaryInstance = true;
             DontDestroyOnLoad(gameObject);
 
             InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
@@ -49,8 +67,28 @@ namespace PinguiStory.CameraSystem
             _yaw = target != null ? target.eulerAngles.y : 0f;
         }
 
+        private void Start()
+        {
+            if (!_isPrimaryInstance || PlayerController.Instance == null)
+            {
+                return;
+            }
+
+            if (target == null)
+            {
+                SetTarget(PlayerController.Instance.transform);
+            }
+
+            PlayerController.Instance.SetCameraTransform(transform);
+        }
+
         private void OnEnable()
         {
+            if (!_isPrimaryInstance)
+            {
+                return;
+            }
+
             _lookAction.Enable();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -58,6 +96,11 @@ namespace PinguiStory.CameraSystem
 
         private void OnDisable()
         {
+            if (!_isPrimaryInstance)
+            {
+                return;
+            }
+
             _lookAction.Disable();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -65,7 +108,7 @@ namespace PinguiStory.CameraSystem
 
         private void LateUpdate()
         {
-            if (target == null)
+            if (!_isPrimaryInstance || target == null)
             {
                 return;
             }
@@ -80,6 +123,14 @@ namespace PinguiStory.CameraSystem
 
             transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref _currentVelocity, positionSmoothTime);
             transform.rotation = rotation;
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
         }
 
         private void UpdateOrbitAngles()

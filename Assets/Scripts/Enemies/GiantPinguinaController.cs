@@ -23,6 +23,7 @@ namespace PinguiStory.Enemies
 
         [Header("Catch")]
         [SerializeField] private float catchDistance = 1.2f;
+        [SerializeField] private float catchGracePeriod = 2f;
 
         /// <summary>Se dispara una vez cuando la vida llega a 0.</summary>
         public event Action Defeated;
@@ -34,11 +35,40 @@ namespace PinguiStory.Enemies
         private int _currentHealth;
         private bool _isDefeated;
         private bool _hasCaughtPlayer;
+        private bool _isActive;
+        private float _activatedAtTime;
 
         private void Awake()
         {
             _currentHealth = maxHealth;
+            ResolvePlayer();
+        }
 
+        private void Update()
+        {
+            if (!_isActive || _isDefeated || _hasCaughtPlayer || _player == null)
+            {
+                return;
+            }
+
+            ChasePlayer();
+
+            if (Time.time - _activatedAtTime >= catchGracePeriod)
+            {
+                CheckCatch();
+            }
+        }
+
+        /// <summary>Inicia la persecución. Llamado por el controlador del encuentro (ej. al entrar a la arena).</summary>
+        public void Activate()
+        {
+            ResolvePlayer();
+            _isActive = true;
+            _activatedAtTime = Time.time;
+        }
+
+        private void ResolvePlayer()
+        {
             GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
             if (playerObject != null)
             {
@@ -46,15 +76,13 @@ namespace PinguiStory.Enemies
             }
         }
 
-        private void Update()
+        /// <summary>Reinicia vida y estado para un nuevo intento del encuentro, sin reactivar la persecución.</summary>
+        public void ResetEncounter()
         {
-            if (_isDefeated || _hasCaughtPlayer || _player == null)
-            {
-                return;
-            }
-
-            ChasePlayer();
-            CheckCatch();
+            _currentHealth = maxHealth;
+            _isDefeated = false;
+            _hasCaughtPlayer = false;
+            _isActive = false;
         }
 
         private void ChasePlayer()

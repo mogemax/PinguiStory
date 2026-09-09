@@ -10,6 +10,8 @@ namespace PinguiStory.Player
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance { get; private set; }
+
         [Header("Input")]
         [SerializeField] private InputActionAsset inputActions;
         [SerializeField] private string actionMapName = "Player";
@@ -61,9 +63,18 @@ namespace PinguiStory.Player
         private Quaternion _meshRigBaseRotation;
 
         private bool _isAimMode;
+        private bool _isPrimaryInstance;
 
         private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            _isPrimaryInstance = true;
             DontDestroyOnLoad(gameObject);
 
             _controller = GetComponent<CharacterController>();
@@ -96,6 +107,11 @@ namespace PinguiStory.Player
 
         private void OnEnable()
         {
+            if (!_isPrimaryInstance)
+            {
+                return;
+            }
+
             _moveAction.Enable();
             _jumpAction.Enable();
             _sprintAction.Enable();
@@ -105,6 +121,11 @@ namespace PinguiStory.Player
 
         private void OnDisable()
         {
+            if (!_isPrimaryInstance)
+            {
+                return;
+            }
+
             _jumpAction.performed -= OnJumpPerformed;
             _moveAction.Disable();
             _jumpAction.Disable();
@@ -112,8 +133,21 @@ namespace PinguiStory.Player
             _slideAction.Disable();
         }
 
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+            }
+        }
+
         private void Update()
         {
+            if (!_isPrimaryInstance)
+            {
+                return;
+            }
+
             _moveInput = _moveAction.ReadValue<Vector2>();
 
             UpdateSlideState();
@@ -124,7 +158,7 @@ namespace PinguiStory.Player
 
         private void LateUpdate()
         {
-            if (meshRigRoot == null)
+            if (!_isPrimaryInstance || meshRigRoot == null)
             {
                 return;
             }
@@ -146,6 +180,11 @@ namespace PinguiStory.Player
         public void SetAimMode(bool enabled)
         {
             _isAimMode = enabled;
+        }
+
+        public void SetCameraTransform(Transform value)
+        {
+            cameraTransform = value;
         }
 
         private void Move()

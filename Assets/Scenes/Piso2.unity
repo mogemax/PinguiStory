@@ -749,7 +749,6 @@ Transform:
   - {fileID: 182277977}
   - {fileID: 2141388710}
   - {fileID: 1501308583}
-  - {fileID: 1783342090}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &883045706
@@ -1703,7 +1702,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 626637909}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2604845976544428057, guid: 2a4304b684655924f97b2240aa212847, type: 3}
       propertyPath: m_Name
@@ -2016,8 +2015,13 @@ MonoBehaviour:
   - {fileID: 900000032}
   - {fileID: 900000042}
   - {fileID: 900000052}
-  filledSprite: {fileID: 0}
-  emptySprite: {fileID: 0}
+  stoneSprites:
+  - {fileID: -1631824781, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: 2044126841, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: 1077934448, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  - {fileID: -1063887653, guid: 49f47bb1c0286d546a6a9a575fb2e16d, type: 3}
+  collectedColor: {r: 1, g: 1, b: 1, a: 1}
+  pendingColor: {r: 1, g: 1, b: 1, a: 0.28}
 --- !u!1 &900000010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,3 +2416,4 @@ SceneRoots:
   - {fileID: 1404476110}
   - {fileID: 293619900}
   - {fileID: 1206950420}
+  - {fileID: 1783342090}

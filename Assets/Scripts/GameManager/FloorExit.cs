@@ -12,8 +12,10 @@ namespace PinguiStory.Core
     {
         [SerializeField] private int minimumStonesRequired = 0;
         [SerializeField] private bool useFloorStoneCount = true;
+        [SerializeField] private bool requiresBossDefeat;
 
         private bool _triggered;
+        private bool _bossDefeated;
 
         private void Reset()
         {
@@ -38,6 +40,11 @@ namespace PinguiStory.Core
 
         private bool HasEnoughStones()
         {
+            if (requiresBossDefeat && !_bossDefeated)
+            {
+                return false;
+            }
+
             if (minimumStonesRequired <= 0 || StoneManager.Instance == null)
             {
                 return true;
@@ -45,6 +52,12 @@ namespace PinguiStory.Core
 
             int collected = useFloorStoneCount ? StoneManager.Instance.FloorCount : StoneManager.Instance.TotalCount;
             return collected >= minimumStonesRequired;
+        }
+
+        /// <summary>Permite usar esta salida cuando el encuentro local ya fue superado.</summary>
+        public void UnlockAfterBossDefeat()
+        {
+            _bossDefeated = true;
         }
     }
 }

@@ -44,17 +44,42 @@ namespace PinguiStory.CameraSystem
         private float _pitch;
         private Vector3 _currentVelocity;
 
+        public void Initialize(InputActionAsset actions, Transform newTarget)
+        {
+            inputActions = actions;
+            target = newTarget;
+            ConfigureInput();
+            _pitch = initialPitch;
+            _yaw = target != null ? target.eulerAngles.y : 0f;
+        }
+
         private void Awake()
         {
-            InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
-            _lookAction = map.FindAction(lookActionName, throwIfNotFound: true);
+            ConfigureInput();
 
             _pitch = initialPitch;
             _yaw = target != null ? target.eulerAngles.y : 0f;
         }
 
+        private void ConfigureInput()
+        {
+            if (inputActions == null || _lookAction != null)
+            {
+                return;
+            }
+
+            InputActionMap map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
+            _lookAction = map.FindAction(lookActionName, throwIfNotFound: true);
+        }
+
         private void OnEnable()
         {
+            ConfigureInput();
+            if (_lookAction == null)
+            {
+                return;
+            }
+
             _lookAction.Enable();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -62,7 +87,7 @@ namespace PinguiStory.CameraSystem
 
         private void OnDisable()
         {
-            _lookAction.Disable();
+            _lookAction?.Disable();
         }
 
         private void LateUpdate()

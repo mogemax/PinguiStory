@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using PinguiStory.Collectibles;
+using PinguiStory.CameraSystem;
+using PinguiStory.Player;
 
 namespace PinguiStory.Core
 {
@@ -37,7 +39,7 @@ namespace PinguiStory.Core
         }
 
         [Header("Pisos de la torre, en orden de progresión")]
-        [SerializeField] private string[] floorSceneNames = { "Piso1", "Piso2", "Piso3" };
+        [SerializeField] private string[] floorSceneNames = { "Piso1", "Piso2", "Piso3", "Piso4" };
 
         public event Action<GameState> StateChanged;
         public event Action<int> FloorChanged;
@@ -81,11 +83,13 @@ namespace PinguiStory.Core
                 return;
             }
 
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player == null)
+            PlayerController playerController = PlayerController.Instance;
+            if (playerController == null)
             {
                 return;
             }
+
+            GameObject player = playerController.gameObject;
 
             Transform spawn = FloorSpawnPoint.Current.transform;
             CharacterController controller = player.GetComponent<CharacterController>();
@@ -100,6 +104,13 @@ namespace PinguiStory.Core
             if (controller != null)
             {
                 controller.enabled = true;
+            }
+
+            ThirdPersonCameraFollow gameplayCamera = ThirdPersonCameraFollow.Instance;
+            if (gameplayCamera != null)
+            {
+                gameplayCamera.SetTarget(player.transform);
+                playerController.SetCameraTransform(gameplayCamera.transform);
             }
         }
 
@@ -135,6 +146,15 @@ namespace PinguiStory.Core
             State = newState;
             StateChanged?.Invoke(State);
         }
+
+#if UNITY_EDITOR
+        /// <summary>Inicializa el estado para probar un piso ya abierto directamente en el editor.</summary>
+        public void ConfigureEditorTestFloor(int floorIndex)
+        {
+            CurrentFloorIndex = floorIndex;
+            SetState(GameState.Playing);
+        }
+#endif
 
         private void LoadCurrentFloor()
         {
