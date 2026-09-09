@@ -366,6 +366,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2848987506589454262, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: -2848987506589454262, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.53
+      objectReference: {fileID: 0}
     - target: {fileID: -1840743917609719352, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -386,6 +394,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 7ed23989ae45c2a459b4b5b907793001, type: 2}
+    - target: {fileID: 8905035176533242759, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8905035176533242759, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -422,7 +438,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Core.FloorExit
   minimumStonesRequired: 3
   useFloorStoneCount: 1
-  requiresBossDefeat: 0
 --- !u!4 &396014620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a21e57fc7c4085b4b89804877b1b65a1, type: 3}
