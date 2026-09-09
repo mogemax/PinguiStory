@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PinguiStory.Collectibles;
 using PinguiStory.CameraSystem;
 using PinguiStory.Player;
@@ -20,6 +22,8 @@ namespace PinguiStory.Core
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+        private const string MainMenuSceneName = "Menu&Inicio";
+
         private static GameManager _instance;
         public static GameManager Instance
         {
@@ -27,7 +31,7 @@ namespace PinguiStory.Core
             {
                 if (_instance == null)
                 {
-                    _instance = FindObjectOfType<GameManager>();
+                    _instance = FindAnyObjectByType<GameManager>();
                     if (_instance == null)
                     {
                         GameObject go = new GameObject("GameManager");
@@ -46,6 +50,8 @@ namespace PinguiStory.Core
 
         public GameState State { get; private set; } = GameState.MainMenu;
         public int CurrentFloorIndex { get; private set; } = -1;
+
+        private bool _isReturningToMainMenu;
 
         private void Awake()
         {
@@ -140,6 +146,69 @@ private void RepositionPlayerAtSpawn()
         {
             State = newState;
             StateChanged?.Invoke(State);
+        }
+
+        /// <summary>
+        /// Termina la partida y restaura el menú a un estado de inicio limpio.
+        /// Los objetos de juego que persisten entre pisos se eliminan antes de
+        /// cargar el menú para que éste cree su propio jugador y su propia cámara.
+        /// </summary>
+        public void ReturnToMainMenu()
+        {
+            if (_isReturningToMainMenu)
+            {
+                return;
+            }
+
+            StartCoroutine(ReturnToMainMenuRoutine());
+        }
+
+        private IEnumerator ReturnToMainMenuRoutine()
+        {
+            _isReturningToMainMenu = true;
+            Time.timeScale = 1f;
+
+            CurrentFloorIndex = -1;
+            SetState(GameState.MainMenu);
+
+            DestroyPersistentGameplayObjects();
+
+            // Destroy se completa al final del frame. Esperar evita que el menú
+            // descarte sus nuevas instancias por encontrar singletons antiguos.
+            yield return null;
+
+            AsyncOperation operation = SceneManager.LoadSceneAsync(MainMenuSceneName, LoadSceneMode.Single);
+            if (operation == null)
+            {
+                Debug.LogError($"[GameManager] No se pudo cargar la escena de menú '{MainMenuSceneName}'.");
+                _isReturningToMainMenu = false;
+                yield break;
+            }
+
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
+
+            _isReturningToMainMenu = false;
+        }
+
+        private static void DestroyPersistentGameplayObjects()
+        {
+            if (PlayerController.Instance != null)
+            {
+                Destroy(PlayerController.Instance.gameObject);
+            }
+
+            if (ThirdPersonCameraFollow.Instance != null)
+            {
+                Destroy(ThirdPersonCameraFollow.Instance.gameObject);
+            }
+
+            if (StoneManager.Instance != null)
+            {
+                Destroy(StoneManager.Instance.gameObject);
+            }
         }
 
 #if UNITY_EDITOR

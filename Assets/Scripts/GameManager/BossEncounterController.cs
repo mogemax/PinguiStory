@@ -17,9 +17,6 @@ namespace PinguiStory.Core
         [Header("Jefe")]
         [SerializeField] private GiantPinguinaController boss;
 
-        [Header("Cierre de partida")]
-        [SerializeField] private string mainMenuSceneName = "Menu&Inicio";
-
         // Jugador y cámara persisten entre escenas (DontDestroyOnLoad) y viven en
         // Menu&Inicio.unity, no en esta escena: no se pueden arrastrar en el Inspector
         // porque Unity no permite referencias serializadas entre archivos de escena
@@ -51,7 +48,7 @@ namespace PinguiStory.Core
                 _weaponController = _playerController.GetComponent<WeaponController>();
             }
 
-            _exploreCamera = FindObjectOfType<ThirdPersonCameraFollow>();
+            _exploreCamera = ThirdPersonCameraFollow.Instance;
             if (_exploreCamera != null)
             {
                 _shooterCamera = _exploreCamera.GetComponent<ShooterCameraFollow>();
@@ -97,7 +94,7 @@ namespace PinguiStory.Core
         private void HandleBossDefeated()
         {
             SetShooterModeEnabled(false);
-            SceneLoader.Instance.LoadScene(mainMenuSceneName);
+            GameManager.Instance.ReturnToMainMenu();
         }
 
         /// <summary>

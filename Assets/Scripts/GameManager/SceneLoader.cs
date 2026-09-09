@@ -18,7 +18,7 @@ namespace PinguiStory.Core
             {
                 if (_instance == null)
                 {
-                    _instance = FindObjectOfType<SceneLoader>();
+                    _instance = FindAnyObjectByType<SceneLoader>();
                     if (_instance == null)
                     {
                         GameObject go = new GameObject("SceneLoader");

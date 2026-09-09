@@ -61,7 +61,7 @@ namespace PinguiStory.DebugTools
             }
 
             Scene activeScene = SceneManager.GetActiveScene();
-            foreach (Camera sceneCamera in FindObjectsOfType<Camera>())
+            foreach (Camera sceneCamera in FindObjectsByType<Camera>(FindObjectsInactive.Exclude))
             {
                 if (sceneCamera.gameObject == activeFollowCamera.gameObject || sceneCamera.gameObject.scene != activeScene)
                 {
