@@ -76,43 +76,38 @@ namespace PinguiStory.Core
             }
         }
 
-        private void RepositionPlayerAtSpawn()
-        {
-            if (FloorSpawnPoint.Current == null)
-            {
-                return;
-            }
+private void RepositionPlayerAtSpawn()
+{
+    if (FloorSpawnPoint.Current == null) return;
 
-            PlayerController playerController = PlayerController.Instance;
-            if (playerController == null)
-            {
-                return;
-            }
+    PlayerController playerController = PlayerController.Instance;
+    if (playerController == null) return;
 
-            GameObject player = playerController.gameObject;
+    GameObject player = playerController.gameObject;
+    Transform spawn = FloorSpawnPoint.Current.transform;
+    CharacterController controller = player.GetComponent<CharacterController>();
 
-            Transform spawn = FloorSpawnPoint.Current.transform;
-            CharacterController controller = player.GetComponent<CharacterController>();
+    if (controller != null)
+    {
+        controller.enabled = false;
+    }
 
-            if (controller != null)
-            {
-                controller.enabled = false;
-            }
+    // AUMENTAR ALTURA: Le añadimos 1.5 metros en Y a la posición del spawn
+    Vector3 spawnPosition = spawn.position + Vector3.up * 1.5f;
+    player.transform.SetPositionAndRotation(spawnPosition, spawn.rotation);
 
-            player.transform.SetPositionAndRotation(spawn.position, spawn.rotation);
+    if (controller != null)
+    {
+        controller.enabled = true;
+    }
 
-            if (controller != null)
-            {
-                controller.enabled = true;
-            }
-
-            ThirdPersonCameraFollow gameplayCamera = ThirdPersonCameraFollow.Instance;
-            if (gameplayCamera != null)
-            {
-                gameplayCamera.SetTarget(player.transform);
-                playerController.SetCameraTransform(gameplayCamera.transform);
-            }
-        }
+    ThirdPersonCameraFollow gameplayCamera = ThirdPersonCameraFollow.Instance;
+    if (gameplayCamera != null)
+    {
+        gameplayCamera.SetTarget(player.transform);
+        playerController.SetCameraTransform(gameplayCamera.transform);
+    }
+}
 
         public void StartGame()
         {
