@@ -30,6 +30,7 @@ namespace PinguiStory.Combat
 
         private InputAction _attackAction;
         private float _nextFireTime;
+        private GameObject _weaponVisualInstance;
 
         private void Awake()
         {
@@ -58,21 +59,32 @@ namespace PinguiStory.Combat
                 return;
             }
 
-            GameObject visualInstance = Instantiate(weaponVisualPrefab, muzzlePoint);
-            visualInstance.transform.localPosition = weaponVisualLocalPosition;
-            visualInstance.transform.localRotation = Quaternion.Euler(weaponVisualLocalEulerAngles);
+            _weaponVisualInstance = Instantiate(weaponVisualPrefab, muzzlePoint);
+            _weaponVisualInstance.transform.localPosition = weaponVisualLocalPosition;
+            _weaponVisualInstance.transform.localRotation = Quaternion.Euler(weaponVisualLocalEulerAngles);
+            _weaponVisualInstance.SetActive(false);
         }
 
         private void OnEnable()
         {
             _attackAction.Enable();
             _attackAction.performed += OnAttackPerformed;
+
+            if (_weaponVisualInstance != null)
+            {
+                _weaponVisualInstance.SetActive(true);
+            }
         }
 
         private void OnDisable()
         {
             _attackAction.performed -= OnAttackPerformed;
             _attackAction.Disable();
+
+            if (_weaponVisualInstance != null)
+            {
+                _weaponVisualInstance.SetActive(false);
+            }
         }
 
         private void OnAttackPerformed(InputAction.CallbackContext context)

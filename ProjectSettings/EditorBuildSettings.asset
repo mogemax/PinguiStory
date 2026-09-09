@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Piso4.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/FinalMalo.unity
+    guid: 37093a87862b0486f80d7f627204803c
+  - enabled: 1
+    path: Assets/Scenes/FinalBueno.unity
+    guid: 82870f1245eab1947bd481dd913e7c1e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

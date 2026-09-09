@@ -7,17 +7,18 @@ using PinguiStory.Player;
 namespace PinguiStory.Core
 {
     /// <summary>
-    /// Orquesta el encuentro de jefe del piso 4: al entrar el jugador al trigger,
-    /// activa a la jefa, cambia de cámara de exploración a cámara de shooter y
-    /// habilita el arma. Si la jefa atrapa al jugador, reinicia el intento; si la
-    /// derrota, vuelve todo al modo de exploración normal.
+    /// Orquesta el encuentro de la jefa en la escena SalaDelJefe: al cargar la
+    /// escena activa a la jefa y cambia de cámara de exploración a cámara de
+    /// shooter. Si la jefa atrapa al jugador, reinicia el intento; si la
+    /// derrota, cierra la partida volviendo al menú principal.
     /// </summary>
-    [RequireComponent(typeof(Collider))]
     public class BossEncounterController : MonoBehaviour
     {
         [Header("Jefe")]
         [SerializeField] private GiantPinguinaController boss;
-        [SerializeField] private FloorExit exit;
+
+        [Header("Cierre de partida")]
+        [SerializeField] private string mainMenuSceneName = "Menu&Inicio";
 
         // Jugador y cámara persisten entre escenas (DontDestroyOnLoad) y viven en
         // Menu&Inicio.unity, no en esta escena: no se pueden arrastrar en el Inspector
@@ -28,14 +29,8 @@ namespace PinguiStory.Core
         private PlayerController _playerController;
         private WeaponController _weaponController;
 
-        private bool _encounterStarted;
         private Vector3 _bossStartPosition;
         private Quaternion _bossStartRotation;
-
-        private void Reset()
-        {
-            GetComponent<Collider>().isTrigger = true;
-        }
 
         private void Awake()
         {
@@ -81,13 +76,8 @@ namespace PinguiStory.Core
             }
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void Start()
         {
-            if (_encounterStarted || !other.CompareTag("Player"))
-            {
-                return;
-            }
-
             StartEncounter();
         }
 
@@ -100,8 +90,6 @@ namespace PinguiStory.Core
                 return;
             }
 
-            _encounterStarted = true;
-
             boss.Activate();
             SetShooterModeEnabled(true);
         }
@@ -109,13 +97,12 @@ namespace PinguiStory.Core
         private void HandleBossDefeated()
         {
             SetShooterModeEnabled(false);
-            exit?.UnlockAfterBossDefeat();
-            boss.gameObject.SetActive(false);
+            SceneLoader.Instance.LoadScene(mainMenuSceneName);
         }
 
         /// <summary>
-        /// La jefa atrapó al jugador: lo devuelve al FloorSpawnPoint del piso y reinicia
-        /// el intento desde la posición inicial de la jefa.
+        /// La jefa atrapó al jugador: lo devuelve al FloorSpawnPoint de esta escena
+        /// y reinicia el intento desde la posición inicial de la jefa.
         /// </summary>
         private void HandlePlayerCaught()
         {
@@ -128,7 +115,7 @@ namespace PinguiStory.Core
             boss.ResetEncounter();
             boss.transform.SetPositionAndRotation(_bossStartPosition, _bossStartRotation);
 
-            _encounterStarted = false;
+            StartEncounter();
         }
 
         /// <summary>
