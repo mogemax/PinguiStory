@@ -279,6 +279,50 @@ RectTransform:
   m_AnchoredPosition: {x: 5.963291, y: -0.52}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &202081524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 202081526}
+  - component: {fileID: 202081525}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &202081525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202081524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc909c672852ffd4c9753f7ae7988c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Core.FloorSpawnPoint
+--- !u!4 &202081526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202081524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.1, y: 0.146, z: 31.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &236085951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,11 +855,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a4304b684655924f97b2240aa212847, type: 3}
---- !u!4 &568968072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6962066845091530529, guid: 2a4304b684655924f97b2240aa212847, type: 3}
-  m_PrefabInstance: {fileID: 568968071}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &591250535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1733,7 @@ MonoBehaviour:
   rotationSpeed: 6
   maxHealth: 100
   catchDistance: 1.8
+  catchGracePeriod: 2
 --- !u!1 &900000210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1802,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Core.BossEncounterController
   boss: {fileID: 900000205}
   exit: {fileID: 1964113979}
+--- !u!1 &900000220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900000221}
+  - component: {fileID: 900000222}
+  m_Layer: 0
+  m_Name: Piso4EditorTestBootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900000221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900000222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900000220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f4d7f61bb84c148d1af0f5a8981e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.DebugTools.Piso4EditorTestBootstrap
+  playerPrefab: {fileID: 5833514249839078679, guid: 9a668b7437a5ae04d8b1dfccc33db516, type: 3}
+  cameraPrefab: {fileID: 2644160400821212629, guid: 8ad72cb32aa9fdd43b4b48d9b9983424, type: 3}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  floorIndex: 3
 --- !u!1 &1233511735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,9 +2595,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4486191375205345644, guid: d9badf6de82728e4f992074e86a0b3a5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1964113980}
     - targetCorrespondingSourceObject: {fileID: -2094113932900849986, guid: d9badf6de82728e4f992074e86a0b3a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1964113979}
@@ -2517,11 +2602,6 @@ PrefabInstance:
 --- !u!1 &1964113977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2094113932900849986, guid: d9badf6de82728e4f992074e86a0b3a5, type: 3}
-  m_PrefabInstance: {fileID: 1964113976}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1964113978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4486191375205345644, guid: d9badf6de82728e4f992074e86a0b3a5, type: 3}
   m_PrefabInstance: {fileID: 1964113976}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1964113979
@@ -2539,18 +2619,6 @@ MonoBehaviour:
   minimumStonesRequired: 3
   useFloorStoneCount: 1
   requiresBossDefeat: 1
---- !u!114 &1964113980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964113978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc909c672852ffd4c9753f7ae7988c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.Core.FloorSpawnPoint
 --- !u!1001 &1992909285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2620,54 +2688,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf8baf22572aa044a3c4ea5b59322be, type: 3}
---- !u!1 &900000220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 900000221}
-  - component: {fileID: 900000222}
-  m_Layer: 0
-  m_Name: Piso4EditorTestBootstrap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &900000221
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000220}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900000222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900000220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f4d7f61bb84c148d1af0f5a8981e9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PinguiStory.DebugTools.Piso4EditorTestBootstrap
-  playerPrefab: {fileID: 5833514249839078679, guid: 9a668b7437a5ae04d8b1dfccc33db516, type: 3}
-  cameraPrefab: {fileID: 2644160400821212629, guid: 8ad72cb32aa9fdd43b4b48d9b9983424, type: 3}
-  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  floorIndex: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2694,5 +2714,6 @@ SceneRoots:
   - {fileID: 1608345757}
   - {fileID: 900000002}
   - {fileID: 900000211}
-  - {fileID: 900000220}
-  - {fileID: 568968072}
+  - {fileID: 568968071}
+  - {fileID: 900000221}
+  - {fileID: 202081526}
